@@ -1,5 +1,15 @@
-<script setup>
-import { ref } from 'vue'
+<script>
+import { ref } from 'vue';
+
+export default {
+  data() {
+    return {
+      frontend: false,
+      backend: false,
+      mobile: false,
+    }
+  },
+}
 
 </script>
 
@@ -24,39 +34,57 @@ import { ref } from 'vue'
             <div class="flex flex-col grid justify-items-stretch content-center h-full w-10/12 space-y-2">
                 <p class="text-lt font-['SFMono-Regular']">My skills are...</p>
                 <div class="flex flex-row flex-justify-between w-12/12 ml-10 pt-10">
-                    <div class="w-6/12 ">Frontend</div>
+                    <div class="w-6/12 "><span @click="frontend = !frontend" class="cursor-pointer text-blue-lt text-3xl font-semibold font-['Calibre 500']">Frontend</span></div>
                     <progress class="w-6/12">30%</progress>
 
                 </div>
+                <ul v-show="frontend" class="w-12/12" aria-labelledby="dropdownDefaultButton">
+                    <li>
+                        <div class="flex flex-row flex-justify-between w-12/12 ml-20 pt-1">
+                            <div class="w-6/12">HTML</div>
+                            <progress class="w-6/12">30%</progress>
+                        </div>
+                    </li>
+                </ul>
+                
                 <div class="flex flex-row flex-justify-between w-12/12 ml-10 pt-10">
-                    <div class="w-6/12 ">Backend</div>
+                    <div  class="w-6/12 "><span @click="backend = !backend" class="cursor-pointer text-blue-lt text-3xl font-semibold font-['Calibre 500']">Backend</span></div>
                     <progress class="w-6/12">30%</progress>
-
                 </div>
+                <ul v-show="backend" class="w-12/12" aria-labelledby="dropdownDefaultButton">
+                    <li>
+                        <div class="flex flex-row flex-justify-between w-12/12 ml-20 pt-1">
+                            <div class="w-6/12">HTML</div>
+                            <progress class="w-6/12" value="30" max="100">30%</progress>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="flex flex-row flex-justify-between w-12/12 ml-20 pt-1">
+                            <div class="w-6/12">HTML</div>
+                            <progress class="w-6/12" value="30" max="100">30%</progress>
+                        </div>
+                    </li>
+                </ul>
 
                 <div class="flex flex-row flex-justify-between w-12/12 ml-10 pt-10">
-                    <div class="w-6/12 ">Mobile</div>
-                    <progress class="w-6/12">30%</progress>
+                    <div class="w-6/12"><span @click="mobile = !mobile" class="cursor-pointer text-blue-lt text-3xl font-semibold font-['Calibre 500']">Mobile</span></div>
+                    <progress class="w-6/12" value="10" max="100">30%</progress>
 
                 </div>
+                <ul v-show="mobile" class="w-12/12" aria-labelledby="dropdownDefaultButton">
+                    <li>
+                        <div class="flex flex-row flex-justify-between w-12/12 ml-20 pt-1">
+                            <div class="w-6/12">HTML</div>
+                            <progress class="w-6/12">30%</progress>
+                        </div>
+                    </li>
+                </ul>
 
-
-                <ul class="w-12/12">
-                        <li>
-                            <div class="flex flex-row flex-justify-between w-12/12 ml-20 pt-1">
-                                <div class="w-6/12">HTML</div>
-                                <progress class="w-6/12">30%</progress>
-                            </div>
-                        </li>
-                        <li><div class="flex flex-row flex-justify-between w-12/12 ml-20 pt-1">
-                                <div class="w-6/12 ">CSS</div>
-                                <progress class="w-6/12">30%</progress>
-                            </div></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
+                
             </div>
+
+                    
+
         </section>
         <!-- work -->
         <section id="work">

@@ -1,8 +1,8 @@
+@import url('https://fonts.cdnfonts.com/css/calibre');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.cdnfonts.com/css/calibre');
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif, Calibre;
@@ -18,10 +18,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-}
-
-nav{
-  /* background-color: #0A192F; */
 }
 
 a {
