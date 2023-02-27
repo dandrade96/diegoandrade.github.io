@@ -8,6 +8,8 @@ import Navbar from './components/navbar.vue';
   <Section />
 </template>
 
-<style scoped>
-
+<style>
+    /* html, body {
+    overflow: hidden;
+    } */
 </style>
