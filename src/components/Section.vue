@@ -20,7 +20,10 @@ export default {
       codeigniter:55,
       reactNative: 0,
       img: false,
-      whatsApp: false
+      whatsApp: false,
+      linkedin: false,
+      gmail: false,
+      telegram: false
     }
   },
   methods:{
@@ -51,9 +54,44 @@ export default {
         let sumArray = [this.reactNative]
         return this.progressFronted = sumArray.reduce(function(soma, i){return soma + i})/sumArray.length
     },
-    changeColor(){
+    changeColor(n){
         this.img = !this.img
-        this.whatsApp = !this.whatsApp
+        switch (n) {
+            case 'whatsApp':
+                this.whatsApp = !this.whatsApp
+                break;
+            case 'linkedin':
+                this.linkedin = !this.linkedin
+                break;
+            case 'gmail':
+                this.gmail = !this.gmail
+                break;
+            case 'telegram':
+                this.telegram = !this.telegram
+                break;
+        
+            default:
+                break;
+        }
+    },
+    callMe(n) {
+        switch (n) {
+            case 'whatsApp':
+                window.open('https://wa.me/5571999066118', '_blank')
+                break;
+            case 'linkedin':
+                window.open('https://www.linkedin.com/in/dcorreiaandrade/', '_blank')
+                break;
+            case 'gmail':
+                window.open('mailto:eng.diegocorreiadeandre@gmail.com', '_blank')
+                break;
+            case 'telegram':
+                window.open('https://t.me/diguinoficial', '_blank')
+                break;
+        
+            default:
+                break;
+        }
     }
   },
   computed(){
@@ -67,7 +105,7 @@ export default {
     <div class="container mx-auto pt-10">
         <!-- Home -->
         <section id="home">
-            <div class="flex flex-col grid justify-items-stretch content-center h-full w-11/12 space-y-2">
+            <div class="grid justify-items-stretch content-center h-full w-11/12 space-y-2">
                 <p class="text-lt font-['SFMono-Regular']">Hi, my name is</p>
                 <h1 class="text-blue-lt text-7xl font-bold font-['Calibre 500'] pt-3">Diêgo Correia de Andrade.</h1>
                 <h3 class="text-blue-ft text-7xl font-bold font-['Calibre 500']">I build things for the web.</h3>
@@ -81,7 +119,7 @@ export default {
         </section>
         <!-- Skills -->
         <section id="skill">
-            <div class="flex flex-col grid justify-items-stretch content-center h-full w-10/12 space-y-2">
+            <div class=" grid justify-items-stretch content-center h-full w-10/12 space-y-2">
                 <p class="text-lt font-['SFMono-Regular']">My skills are...</p>
                 <div v-show="mediaFrontend() > 0" class="flex flex-row flex-justify-between w-12/12 ml-10 pt-10">
                     <div class="w-6/12 "><span @click="toggleFrontend" class="cursor-pointer text-blue-lt text-3xl font-semibold font-['Calibre 500']">Frontend</span></div>
@@ -167,7 +205,7 @@ export default {
         </section>
         <!-- work -->
         <section id="work">
-            <div class="flex flex-col block grid justify-items-stretch content-center h-screen w-12/12 space-y-5 pt-40">
+            <div class="grid justify-items-stretch content-center h-screen w-12/12 space-y-5 pt-40">
                 <p class="text-lt font-['SFMono-Regular'] pb-5">These are my works,</p>
                 <div class="flex flex-row w-12/12 h-50 pb-5">
                     <div class="w-1/12"></div>
@@ -193,25 +231,26 @@ export default {
         </section>
         <!-- contact -->
         <section id="contact">
-            <div class="flex flex-col  grid items-stretch content-center h-screen w-12/12 space-y-2">
+            <div class="grid items-stretch content-center h-screen w-12/12 space-y-2">
                 <p class="text-lt font-['SFMono-Regular']">And to contact me,</p>
                 <div class="grid justify-items-center h-90 w-full place-content-center pt-20">
                     <div class="grid grid-cols-3 w-12/12">
                         <div class="col-start-1 col-end-1 w-12/12">
-                                <img :src="[whatsApp ? '/src/assets/image/wpp-select.svg': '/src/assets/image/wpp.svg']" @mouseover="changeColor()"  @mouseleave="changeColor()">
+                                <img class="cursor-pointer" :src="[whatsApp ? '/src/assets/image/wpp-select.svg': '/src/assets/image/wpp.svg']" @mouseover="changeColor('whatsApp')"  @mouseleave="changeColor('whatsApp')" @click="callMe('whatsApp')">
                                 
                         </div>
+                        
                         <div class="col-start-3 col-end-3 flex flex-row justify-end">
-                            <img :src="[linkedin ? '/src/assets/image/lk-select.svg': '/src/assets/image/lk.svg']"  @mouseover="changeColor()"  @mouseleave="changeColor()">
+                            <img class="cursor-pointer" :src="[linkedin ? '/src/assets/image/lk-select.svg': '/src/assets/image/lk.svg']"  @mouseover="changeColor('linkedin')"  @mouseleave="changeColor('linkedin')"  @click="callMe('linkedin')">
                         </div>
-                        <div class="col-start-2 col-end-2">
+                        <div class="col-start-2 col-end-2 photo">
                             <img src="../assets/image/Foto-perfil.jpeg" alt="" srcset="" class="profile-image object-cover rounded-full border-2 self-center" :class="[img ? 'border-lt':'border-blue-ft']" @mouseover="changeColor()"  @mouseleave="changeColor()">
                         </div>
                         <div class="col-start-1 col-end-1">
-                            <img :src="[gnail ? '/src/assets/image/gmail-select.svg': '/src/assets/image/gmail.svg']"  @mouseover="changeColor()"  @mouseleave="changeColor()">
+                            <img class="cursor-pointer" :src="[gmail ? '/src/assets/image/gmail-select.svg': '/src/assets/image/gmail.svg']"  @mouseover="changeColor('gmail')"  @mouseleave="changeColor('gmail')" @click="callMe('gmail')">
                         </div>
                         <div class="col-start-3 col-end-3 flex flex-row justify-end">
-                            <img :src="[gnail ? '/src/assets/image/tg-select.svg': '/src/assets/image/tg.svg']"  @mouseover="changeColor()"  @mouseleave="changeColor()">
+                            <img class="cursor-pointer" :src="[telegram ? '/src/assets/image/tg-select.svg': '/src/assets/image/tg.svg']"  @mouseover="changeColor('telegram')"  @mouseleave="changeColor('telegram')" @click="callMe('telegram')">
                         </div>
                     </div>
                 </div>
@@ -246,6 +285,24 @@ export default {
   .profile-image{
     width: 20vh;
     height: 20vh;
+  }
+
+  .whatsapp{
+    position: relative;
+    padding-left: 3vw;
+    top: -3vh;
+    z-index: 1;
+  }
+
+ .linkedin{
+    position: relative;
+    padding-left: 3vw;
+    top: -3vh;
+    z-index: 1;
+  }
+
+  .photo{
+    z-index: 10;
   }
 
 </style>
