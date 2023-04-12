@@ -33,6 +33,9 @@ export default{
       this.work = false
       this.contact = true
     },
+    openResume() {
+      window.open('../src/assets/docs/resume.pdf', '_blank')
+    }
   }
 }
 </script>
@@ -57,7 +60,7 @@ export default{
           <a href="#contact" class="block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" :class="[contact ? 'text-lt md:text-lt':'text-white md:text-white']" @click="toggleContact()"><span>IV.</span>Contact</a>
         </li>
         <li>
-          <button class="block py-2 pl-3 pr-4 text-lt md:text-lt md:bg-transparent md:border-2 md:border-lt md:hover:border-white md:hover:text-white">Resume</button>
+          <button class="block py-2 pl-3 pr-4 text-lt md:text-lt md:bg-transparent md:border-2 md:border-lt md:hover:border-white md:hover:text-white" @click="openResume()">Resume</button>
         </li>
       </ul>
     </div>
