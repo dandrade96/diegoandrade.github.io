@@ -261,6 +261,9 @@ export default {
 </template>
 
 <style>
+  html {
+    overflow: hidden;
+  }
   section{
     height: 100vh;
   }
@@ -285,24 +288,6 @@ export default {
   .profile-image{
     width: 20vh;
     height: 20vh;
-  }
-
-  .whatsapp{
-    position: relative;
-    padding-left: 3vw;
-    top: -3vh;
-    z-index: 1;
-  }
-
- .linkedin{
-    position: relative;
-    padding-left: 3vw;
-    top: -3vh;
-    z-index: 1;
-  }
-
-  .photo{
-    z-index: 10;
   }
 
 </style>
